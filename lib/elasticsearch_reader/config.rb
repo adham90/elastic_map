@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ElasticsearchReader
-  # ElasticsearchReader configuration.
+  # ElasticsearchReader core configuration.
   class Config
     include Singleton
 
@@ -36,8 +36,8 @@ module ElasticsearchReader
     #
     def configuration
       yaml_settings.merge(settings.deep_symbolize_keys).tap do |configuration|
-        configuration[:logger]       = logger
-        configuration[:indices_path] = indices_path
+        configuration[:logger]         = logger
+        configuration[:indices_path] ||= indices_path
       end
     end
 
