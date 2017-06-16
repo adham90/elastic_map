@@ -1,11 +1,31 @@
+# frozen_string_literal: true
+
 module ElasticsearchReader
+  # ElasticsearchReader configuration.
   class Config
     include Singleton
 
+    attr_accessor :settings, :logger,
+
+                  # Where ElasticsearchReader expects to find index definitions
+                  # within a Rails app folder.
+                  :indices_path
+
+    def self.delegated
+      public_instance_methods -
+        superclass.public_instance_methods -
+        Singleton.public_instance_methods
+    end
+
+    def initialize
+      @settings = {}
+      @indices_path = 'app/indices'
+    end
+
     def configuration
       yaml_settings.merge(settings.deep_symbolize_keys).tap do |configuration|
-        configuration[:logger] ||= transport_logger
-        configuration.merge!(tracer: transport_tracer) if transport_tracer
+        configuration[:logger]       = logger
+        configuration[:indices_path] = indices_path
       end
     end
 
@@ -13,16 +33,14 @@ module ElasticsearchReader
 
     def yaml_settings
       @yaml_settings ||= begin
-        file = Rails.root.join('config', 'elasticsearch_reader.yml')
-        yaml = ERB.new(File.read(file)).result
-        symbolize_keys(YAML.safe_load(yaml))
-      end || {}
-    end
+        file = File.join(Dir.pwd, 'config', 'elasticsearch_reader.yml')
 
-    def symbolize_keys(hash)
-      hash.each_with_object({}) do |(k, v), h|
-        h[k.to_sym] = v.is_a?(Hash) ? symbolize_keys(v) : v
-      end
+        if File.exist?(file)
+          yaml = ERB.new(File.read(file)).result
+          hash = YAML.safe_load(yaml)
+          hash&.try(:deep_symbolize_keys)
+        end
+      end || {}
     end
   end
 end
