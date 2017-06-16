@@ -22,6 +22,18 @@ module ElasticsearchReader
       @indices_path = 'app/indices'
     end
 
+    # ElasticsearchReader core configurations. There is two ways to set it up:
+    # use `ElasticsearchReader.settings=` method or, create
+    # `config/elasticsearch_reader.yml` file. Btw, this file supports ERB.
+    #
+    # Configuration options:
+    #
+    #   1. ElasticsearchReader client options.
+    #      All the options Elasticsearch::Client supports.
+    #
+    #        test:
+    #          host: 'localhost:9250'
+    #
     def configuration
       yaml_settings.merge(settings.deep_symbolize_keys).tap do |configuration|
         configuration[:logger]       = logger
