@@ -1,5 +1,7 @@
 # ElasticsearchReader
 
+[![Join the chat at https://gitter.im/ElasticsearchReader/Lobby](https://badges.gitter.im/ElasticsearchReader/Lobby.svg)](https://gitter.im/ElasticsearchReader/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ElasticsearchReader is an ODM for Elasticsearch and query DSL in a OO style.
 
 ## Why ElasticsearchReader?
