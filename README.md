@@ -37,7 +37,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## TODO
 
- - [ ] Configrations and settings
+ - [x] [Configrations and settings](https://github.com/adham90/elasticsearch_reader/pull/1)
  - [ ] Object mapper
  - [ ] Relations
  - [ ] Query DSL
