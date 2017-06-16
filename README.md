@@ -1,5 +1,8 @@
 # ElasticsearchReader
-
+[![Code Climate](https://codeclimate.com/github/adham90/elasticsearch_reader/badges/gpa.svg)](https://codeclimate.com/github/adham90/elasticsearch_reader)
+[![Issue Count](https://codeclimate.com/github/adham90/elasticsearch_reader/badges/issue_count.svg)](https://codeclimate.com/github/adham90/elasticsearch_reader)
+[![Build Status](https://travis-ci.org/adham90/elasticsearch_reader.svg?branch=master)](https://travis-ci.org/adham90/elasticsearch_reader)
+[![CircleCI](https://circleci.com/gh/adham90/elasticsearch_reader.svg?style=svg)](https://circleci.com/gh/adham90/elasticsearch_reader)
 [![Join the chat at https://gitter.im/ElasticsearchReader/Lobby](https://badges.gitter.im/ElasticsearchReader/Lobby.svg)](https://gitter.im/ElasticsearchReader/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ElasticsearchReader is an ODM for Elasticsearch and query DSL in a OO style.
