@@ -9,10 +9,10 @@ describe ElasticsearchReader::Config do
   its(:indices_path) { should == 'app/indices' }
 
   describe '#configuration' do
-    before { subject.settings = { indices_path: 'app/custom_indices_path' } }
+    before { subject.settings = { indices_path: 'app/foobar' } }
 
     specify do
-      expect(subject.configuration).to include(indices_path: 'app/custom_indices_path')
+      expect(subject.configuration).to include(indices_path: 'app/foobar')
     end
   end
 end
