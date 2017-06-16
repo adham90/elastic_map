@@ -1,4 +1,5 @@
 # ElasticsearchReader
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![Code Climate](https://codeclimate.com/github/adham90/elasticsearch_reader/badges/gpa.svg)](https://codeclimate.com/github/adham90/elasticsearch_reader)
 [![Issue Count](https://codeclimate.com/github/adham90/elasticsearch_reader/badges/issue_count.svg)](https://codeclimate.com/github/adham90/elasticsearch_reader)
 [![Build Status](https://travis-ci.org/adham90/elasticsearch_reader.svg?branch=master)](https://travis-ci.org/adham90/elasticsearch_reader)
