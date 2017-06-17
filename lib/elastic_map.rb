@@ -6,11 +6,11 @@ require 'elasticsearch'
 require 'active_support/core_ext/hash/keys'
 require 'active_support/core_ext/module/delegation'
 
-require 'elasticsearch_reader/version'
-require 'elasticsearch_reader/config'
+require 'elastic_map/version'
+require 'elastic_map/config'
 
 # You Know What It Is :D
-module ElasticsearchReader
+module ElasticMap
   class << self
     # Main elasticsearch-ruby client instance
     #
@@ -19,8 +19,8 @@ module ElasticsearchReader
     end
 
     def config
-      ElasticsearchReader::Config.instance
+      ElasticMap::Config.instance
     end
-    delegate(*ElasticsearchReader::Config.delegated, to: :config)
+    delegate(*ElasticMap::Config.delegated, to: :config)
   end
 end

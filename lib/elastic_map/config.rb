@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-module ElasticsearchReader
-  # ElasticsearchReader core configuration.
+module ElasticMap
+  # ElasticMap core configuration.
   class Config
     include Singleton
 
     attr_accessor :settings, :logger,
 
-                  # Where ElasticsearchReader expects to find index definitions
+                  # Where ElasticMap expects to find index definitions
                   # within a Rails app folder.
                   :indices_path
 
@@ -22,9 +22,9 @@ module ElasticsearchReader
       @indices_path = 'app/indices'
     end
 
-    # ElasticsearchReader configurations. There is two ways to set it up:
-    # use `ElasticsearchReader.settings=` method or, create
-    # `config/elasticsearch_reader.yml` file (ERB supported), this file
+    # ElasticMap configurations. There is two ways to set it up:
+    # use `ElasticMap.settings=` method or, create
+    # `config/elastic_map.yml` file (ERB supported), this file
     # support All Elasticsearch::Client options supports.
     #
     #        test:
@@ -41,7 +41,7 @@ module ElasticsearchReader
 
     def yaml_settings
       @yaml_settings ||= begin
-        file = File.join(Dir.pwd, 'config', 'elasticsearch_reader.yml')
+        file = File.join(Dir.pwd, 'config', 'elastic_map.yml')
 
         if File.exist?(file)
           yaml = ERB.new(File.read(file)).result

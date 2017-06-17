@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'elasticsearch_reader'
+require 'elastic_map'
 require 'rspec/its'
 require 'byebug'
 
