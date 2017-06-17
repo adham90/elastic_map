@@ -32,7 +32,7 @@ module ElasticsearchReader
     #
     def configuration
       yaml_settings.merge(settings.deep_symbolize_keys).tap do |configuration|
-        configuration[:logger]         = logger
+        configuration[:logger]         = logger if logger
         configuration[:indices_path] ||= indices_path
       end
     end
