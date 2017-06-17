@@ -2,9 +2,9 @@
 
 require 'spec_helper'
 
-RSpec.describe ElasticsearchReader do
+RSpec.describe ElasticMap do
   it 'has a version number' do
-    expect(ElasticsearchReader::VERSION).not_to be nil
+    expect(ElasticMap::VERSION).not_to be nil
   end
 
   # TODO: write test cases for .client method

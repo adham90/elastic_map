@@ -1,23 +1,22 @@
-# ElasticsearchReader
+# ElasticMap
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![Code Climate](https://codeclimate.com/github/adham90/elasticsearch_reader/badges/gpa.svg)](https://codeclimate.com/github/adham90/elasticsearch_reader)
-[![Issue Count](https://codeclimate.com/github/adham90/elasticsearch_reader/badges/issue_count.svg)](https://codeclimate.com/github/adham90/elasticsearch_reader)
-[![Build Status](https://travis-ci.org/adham90/elasticsearch_reader.svg?branch=master)](https://travis-ci.org/adham90/elasticsearch_reader)
-[![CircleCI](https://circleci.com/gh/adham90/elasticsearch_reader.svg?style=svg)](https://circleci.com/gh/adham90/elasticsearch_reader)
-[![Join the chat at https://gitter.im/ElasticsearchReader/Lobby](https://badges.gitter.im/ElasticsearchReader/Lobby.svg)](https://gitter.im/ElasticsearchReader/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Code Climate](https://codeclimate.com/github/adham90/elastic_map/badges/gpa.svg)](https://codeclimate.com/github/adham90/elastic_map)
+[![Issue Count](https://codeclimate.com/github/adham90/elastic_map/badges/issue_count.svg)](https://codeclimate.com/github/adham90/elastic_map)
+[![Build Status](https://travis-ci.org/adham90/elastic_map.svg?branch=master)](https://travis-ci.org/adham90/elastic_map)
+[![Join the chat at https://gitter.im/elastic_map/Lobby](https://badges.gitter.im/elastic_map/Lobby.svg)](https://gitter.im/elastic_map/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-ElasticsearchReader is an ODM for Elasticsearch and query DSL in a OO style.
+ElasticMap is an ODM for Elasticsearch and query DSL in a OO style.
 
-## Why ElasticsearchReader?
+## Why ElasticMap?
 
-TODO: Write why ElasticsearchReader here
+TODO: Write why ElasticMap here
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'elasticsearch_reader'
+gem 'elastic_map'
 ```
 
 And then execute:
@@ -26,21 +25,21 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install elasticsearch_reader
+    $ gem install elastic_map
 
 ## Usage
 
 ### Client settings
 
-There are two ways to configure the ElasticsearchReader client: the `ElasticsearchReader.settings` hash and `elasticsearch_reader.yml`
+There are two ways to configure the ElasticMap client: the `ElasticMap.settings` hash and `elastic_map.yml`
 
 ```ruby
-# config/initializers/elasticsearch_reader.rb
-ElasticsearchReader.settings = {host: 'localhost:9250'} # do not use environments
+# config/initializers/elastic_map.rb
+ElasticMap.settings = {host: 'localhost:9250'} # do not use environments
 ```
 
 ```yaml
-# config/elasticsearch_reader.yml
+# config/elastic_map.yml
 # separate environment configs
 test:
   host: 'localhost:9250'
@@ -52,9 +51,9 @@ development:
 The logger may be set explicitly:
 
 ```ruby
-ElasticsearchReader.logger = Logger.new(STDOUT)
+ElasticMap.logger = Logger.new(STDOUT)
 ```
-See [config.rb](lib/elasticsearch_reader/config.rb) for more details.
+See [config.rb](lib/elastic_map/config.rb) for more details.
 
 ## Development
 
@@ -64,17 +63,17 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## TODO
 
- - [x] [Configrations and settings](https://github.com/adham90/elasticsearch_reader/projects/1#card-3395198)
- - [ ] [Object mapper](https://github.com/adham90/elasticsearch_reader/projects/1#card-3393856)
- - [ ] [Query DSL](https://github.com/adham90/elasticsearch_reader/projects/1#card-3393917)
- - [ ] [Query helpers](https://github.com/adham90/elasticsearch_reader/projects/1#card-3393926)
- - [ ] [Relations](https://github.com/adham90/elasticsearch_reader/projects/1#card-3393910)
- - [ ] [Embedding](https://github.com/adham90/elasticsearch_reader/projects/1#card-3393932)
- - [ ] [Aggregations](https://github.com/adham90/elasticsearch_reader/projects/1#card-3395154)
+ - [x] [Configrations and settings](https://github.com/adham90/elastic_map/projects/1#card-3395198)
+ - [ ] [Object mapper](https://github.com/adham90/elastic_map/projects/1#card-3393856)
+ - [ ] [Query DSL](https://github.com/adham90/elastic_map/projects/1#card-3393917)
+ - [ ] [Query helpers](https://github.com/adham90/elastic_map/projects/1#card-3393926)
+ - [ ] [Relations](https://github.com/adham90/elastic_map/projects/1#card-3393910)
+ - [ ] [Embedding](https://github.com/adham90/elastic_map/projects/1#card-3393932)
+ - [ ] [Aggregations](https://github.com/adham90/elastic_map/projects/1#card-3395154)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/adham90/elasticsearch_reader. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/adham90/elastic_map. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

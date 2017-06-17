@@ -3,7 +3,7 @@
 require 'spec_helper'
 require 'logger'
 
-describe ElasticsearchReader::Config do
+describe ElasticMap::Config do
   subject { described_class.send(:new) }
 
   its(:logger) { should be_nil }

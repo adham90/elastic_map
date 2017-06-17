@@ -1,4 +1,4 @@
-# Contributing to ElasticsearchReader
+# Contributing to ElasticMap
 
 ### Style (Ruby)
 
