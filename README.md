@@ -34,8 +34,6 @@ Or install it yourself as:
 
 There are two ways to configure the ElasticsearchReader client: the `ElasticsearchReader.settings` hash and `elasticsearch_reader.yml`
 
-You can create this file manually or run `rails g elasticsearch_reader:install`.
-
 ```ruby
 # config/initializers/elasticsearch_reader.rb
 ElasticsearchReader.settings = {host: 'localhost:9250'} # do not use environments
