@@ -10,6 +10,8 @@ ElasticsearchReader is an ODM for Elasticsearch and query DSL in a OO style.
 
 ## Why ElasticsearchReader?
 
+TODO: Write why ElasticsearchReader here
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -28,7 +30,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Client settings
+
+There are two ways to configure the ElasticsearchReader client: the `ElasticsearchReader.settings` hash and `elasticsearch_reader.yml`
+
+You can create this file manually or run `rails g elasticsearch_reader:install`.
+
+```ruby
+# config/initializers/elasticsearch_reader.rb
+ElasticsearchReader.settings = {host: 'localhost:9250'} # do not use environments
+```
+
+```yaml
+# config/elasticsearch_reader.yml
+# separate environment configs
+test:
+  host: 'localhost:9250'
+  prefix: 'test'
+development:
+  host: 'localhost:9200'
+```
+
+The logger may be set explicitly:
+
+```ruby
+ElasticsearchReader.logger = Logger.new(STDOUT)
+```
+See [config.rb](lib/elasticsearch_reader/config.rb) for more details.
 
 ## Development
 
@@ -38,14 +66,13 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## TODO
 
- - [x] [Configrations and settings](https://github.com/adham90/elasticsearch_reader/pull/1)
- - [ ] Object mapper
- - [ ] Relations
- - [ ] Query DSL
- - [ ] Pagination
- - [ ] Embedding
- - [ ] Elasticsearch Analysis
- - [ ] Aggregations
+ - [x] [Configrations and settings](https://github.com/adham90/elasticsearch_reader/projects/1#card-3395198)
+ - [ ] [Object mapper](https://github.com/adham90/elasticsearch_reader/projects/1#card-3393856)
+ - [ ] [Query DSL](https://github.com/adham90/elasticsearch_reader/projects/1#card-3393917)
+ - [ ] [Query helpers](https://github.com/adham90/elasticsearch_reader/projects/1#card-3393926)
+ - [ ] [Relations](https://github.com/adham90/elasticsearch_reader/projects/1#card-3393910)
+ - [ ] [Embedding](https://github.com/adham90/elasticsearch_reader/projects/1#card-3393932)
+ - [ ] [Aggregations](https://github.com/adham90/elasticsearch_reader/projects/1#card-3395154)
 
 ## Contributing
 
