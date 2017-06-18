@@ -5,9 +5,13 @@ require 'elasticsearch'
 
 require 'active_support/core_ext/hash/keys'
 require 'active_support/core_ext/module/delegation'
+require 'active_support/core_ext/class/attribute'
+require 'active_support/core_ext/string/inflections'
+require 'active_support/core_ext/string/filters'
 
 require 'elastic_map/version'
 require 'elastic_map/config'
+require 'elastic_map/index'
 
 # You Know What It Is :D
 module ElasticMap
