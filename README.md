@@ -1,15 +1,11 @@
-# ElasticMap
+# :shell: ElasticMap
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![Code Climate](https://codeclimate.com/github/adham90/elastic_map/badges/gpa.svg)](https://codeclimate.com/github/adham90/elastic_map)
-[![Issue Count](https://codeclimate.com/github/adham90/elastic_map/badges/issue_count.svg)](https://codeclimate.com/github/adham90/elastic_map)
 [![Build Status](https://travis-ci.org/adham90/elastic_map.svg?branch=master)](https://travis-ci.org/adham90/elastic_map)
 [![Join the chat at https://gitter.im/elastic_map/Lobby](https://badges.gitter.im/elastic_map/Lobby.svg)](https://gitter.im/elastic_map/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Dependency Status](https://gemnasium.com/badges/github.com/adham90/elastic_map.svg)](https://gemnasium.com/github.com/adham90/elastic_map)
+[![Inline docs](http://inch-ci.org/github/adham90/elastic_map.svg?branch=master)](http://inch-ci.org/github/adham90/elastic_map)
 
-ElasticMap is an ODM for Elasticsearch and query DSL in a OO style.
-
-## Why ElasticMap?
-
-TODO: Write why ElasticMap here
+ElasticMap ODM (Object-Document-Mapper) is a [mongoid](https://github.com/mongodb/mongoid)-like gem for [Elasticsearch](https://github.com/elastic/elasticsearch) that provides the functionality of chainable queries, embedding indexes, relations, and aggregations.
 
 ## Installation
 
@@ -64,12 +60,14 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## TODO
 
  - [x] [Configrations and settings](https://github.com/adham90/elastic_map/projects/1#card-3395198)
+ - [ ] [Create Index base class](https://github.com/adham90/elastic_map/projects/1#card-3398857)
  - [ ] [Object mapper](https://github.com/adham90/elastic_map/projects/1#card-3393856)
  - [ ] [Query DSL](https://github.com/adham90/elastic_map/projects/1#card-3393917)
  - [ ] [Query helpers](https://github.com/adham90/elastic_map/projects/1#card-3393926)
  - [ ] [Relations](https://github.com/adham90/elastic_map/projects/1#card-3393910)
  - [ ] [Embedding](https://github.com/adham90/elastic_map/projects/1#card-3393932)
  - [ ] [Aggregations](https://github.com/adham90/elastic_map/projects/1#card-3395154)
+ - [ ] [Analyzer](https://github.com/adham90/elastic_map/projects/1#card-3395297)
 
 ## Contributing
 
