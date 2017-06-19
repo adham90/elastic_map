@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'elastic_map/index/mapper'
+require 'elastic_map/index/base'
+require 'elastic_map/field/base'
 
 module ElasticMap
   # Index base class, allows you to convert your object to ElasticMap::Index
@@ -11,8 +13,20 @@ module ElasticMap
   #
   class Index
     include Mapper
+    include Base
 
     singleton_class.delegate :client, to: ElasticMap
+
+    class_attribute :fields
+    self.fields = []
+
+    def initialize
+      fields.each do |f|
+        define_singleton_method(f.name) do
+          map_field(f)
+        end
+      end
+    end
 
     # Returns Elasticsearch index name
     #
@@ -55,6 +69,10 @@ module ElasticMap
       #
       def indexed_in(suggest)
         @index_name = suggest.to_s
+      end
+
+      def field(name, options = {})
+        fields << Field::Base.new(name, options)
       end
     end
   end
