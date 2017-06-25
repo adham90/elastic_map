@@ -2,13 +2,6 @@
 
 require 'spec_helper'
 
-class UsersIndex < ElasticMap::Index
-end
-
-class UsersProfileIndex < ElasticMap::Index
-  indexed_in :profile
-end
-
 describe ElasticMap::Index do
   subject { UsersIndex }
 

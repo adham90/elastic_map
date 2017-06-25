@@ -3,13 +3,11 @@
 module ElasticMap
   module Field
     module Type
+      # String parser.
+      #
       module String
         def parse(data)
           data.to_s
-        end
-
-        def string(*args)
-
         end
       end
     end

@@ -18,3 +18,12 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+# TODO: move this code into spec helper
+class UsersIndex < ElasticMap::Index
+  field :username
+end
+
+class UsersProfileIndex < ElasticMap::Index
+  indexed_in :profile
+end
