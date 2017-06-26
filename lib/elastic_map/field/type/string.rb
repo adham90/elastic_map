@@ -6,10 +6,15 @@ module ElasticMap
       # String parser.
       #
       module String
-        def parse(data)
-          data.to_s
+        module ClassMethods
+          def _parse(data)
+            data.to_s
+          end
         end
       end
     end
   end
 end
+
+::String.__send__(:include, ElasticMap::Field::Type::String)
+::String.extend(ElasticMap::Field::Type::String::ClassMethods)

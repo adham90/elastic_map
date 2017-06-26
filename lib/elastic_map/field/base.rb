@@ -12,16 +12,18 @@ module ElasticMap
     # and type and default value.
     # @type [ElasticMap::Field::Type] this attr contain ElasticMap filed type.
     class Base
-      attr_reader :name, :options, :type
+      attr_reader :name, :options, :type, :default_val
+      attr_accessor :klass
+
+      delegate :_parse, to: :type
 
       def initialize(name, options = {})
         options.deep_symbolize_keys!
         @name        = name.to_sym
         @options     = options
         @label       = options[:as]
-        @type        = options[:type]
         @default_val = options[:default]
-        include_race
+        define_default_method if default_val.respond_to?(:call) && klass
       end
 
       # Return ElasticMap::Field::Type.
@@ -29,14 +31,25 @@ module ElasticMap
       # @return [ElasticMap::Field::Type] convert filed type into ElasticMap
       # type.
       def type
-        @type = options[:type] || String
-        "ElasticMap::Field::Type::#{@type.name}"
+        @type ||= options[:type] || String
+      end
+
+      def parse(val)
+        return evaluated_default if val.nil?
+
+        _parse(val)
       end
 
       private
 
-      def include_race
-        extend type.constantize
+      def evaluated_default
+        return evaluate_default_proc if default_val.respond_to?(:call)
+
+        _parse(default_val)
+      end
+
+      def evaluate_default_proc
+        _parse(klass.instance_exec(&default_val))
       end
     end
   end

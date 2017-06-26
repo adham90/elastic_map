@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-require 'elastic_map/index/mapper'
 require 'elastic_map/index/base'
+require 'elastic_map/index/mapper'
+require 'elastic_map/index/helpers'
 require 'elastic_map/field/base'
+require 'elastic_map/search/helpers'
 
 module ElasticMap
   # Index base class, allows you to convert your object to ElasticMap::Index
@@ -14,15 +16,21 @@ module ElasticMap
   class Index
     include Base
     include Mapper
+    include Helpers
+    extend Search::Helpers
 
     singleton_class.delegate :client, to: ElasticMap
 
-    class_attribute :fields, :_index_hash
+    class_attribute :fields, :_index_data
     self.fields      = []
-    self._index_hash = {}
+    self._index_data = {}
 
-    def initialize
+    def initialize(data = {})
+      @_index_data = data
+
       fields.each do |f|
+        f.klass = self
+
         define_singleton_method(f.name) do
           map_field(f)
         end
@@ -100,7 +108,9 @@ module ElasticMap
       #   field :full_name, type: -> { [first_name, last_name].join(' ') }
       #
       #   separator = ' '
-      #   field :full_name, type: ->(user) { [user.first_name, user.last_name].join(separator) }
+      #   field :full_name, type: ->(user) {
+      #     [user.first_name, user.last_name].join(separator)
+      #   }
       #
       # If array was returned as value - it will be put in index as well.
       #
@@ -108,8 +118,8 @@ module ElasticMap
       #
       # Fields supports nesting in case of `object` field type. If
       # `user.quiz` will return an array of objects, then result index content
-      # will be an array of hashes, if `user.quiz` is not a collection association
-      # then just values hash will be put in the index.
+      # will be an array of hashes, if `user.quiz` is not a collection
+      # association then just values hash will be put in the index.
       #
       #   field :quiz do
       #     field :question, :answer
@@ -132,7 +142,7 @@ module ElasticMap
       # both present field is treated as a multi-field. In that case field
       # composition changes satisfy elasticsearch rules:
       #
-      #   field :full_name, analyzer: 'name', type: ->{ full_name.try(:strip) } do
+      #   field :full_name, type: ->{ full_name.try(:strip) } do
       #     field :sorted, analyzer: 'sorted'
       #   end
       #
