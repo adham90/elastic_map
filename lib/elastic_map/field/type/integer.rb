@@ -6,10 +6,15 @@ module ElasticMap
       # Integer parser.
       #
       module Integer
-        def parse(data)
-          data.to_i
+        module ClassMethods
+          def _parse(data)
+            data.to_i
+          end
         end
       end
     end
   end
 end
+
+::Integer.__send__(:include, ElasticMap::Field::Type::Integer)
+::Integer.extend(ElasticMap::Field::Type::Integer::ClassMethods)

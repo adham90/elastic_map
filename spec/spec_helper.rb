@@ -21,7 +21,14 @@ end
 
 # TODO: move this code into spec helper
 class UsersIndex < ElasticMap::Index
-  field :username
+  field :first_name, typs: String
+  field :last_name, typs: String
+  field :full_name, default: -> { "#{first_name} #{last_name}" }
+  field :username, typs: String
+  field :age, type: Integer
+  field :phone, type: Integer, default: nil
+  field :address, type: String, default: 'cairo'
+  field :created_at, type: String, default: Time.now
 end
 
 class UsersProfileIndex < ElasticMap::Index

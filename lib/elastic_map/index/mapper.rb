@@ -10,7 +10,7 @@ module ElasticMap
       # @param args [ElasticMap::Field] the parsing field.
       # return [Type] the parsed data.
       def map_field(field)
-        field.parse(_index_hash[field.name])
+        field.parse(_index_data[field.name])
       end
     end
   end
