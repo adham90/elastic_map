@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'elastic_map/index/base'
+require 'elastic_map/index/inspector'
 require 'elastic_map/index/mapper'
 require 'elastic_map/index/helpers'
 require 'elastic_map/field/base'
@@ -17,6 +18,7 @@ module ElasticMap
     include Base
     include Mapper
     include Helpers
+    include Inspector
     extend Search::Helpers
 
     singleton_class.delegate :client, to: ElasticMap
